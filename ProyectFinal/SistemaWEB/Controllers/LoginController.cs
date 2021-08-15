@@ -12,9 +12,8 @@ namespace SistemaWEB.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
         string _stringConnection = ConfigurationManager.ConnectionStrings["connBD_ADO"].ConnectionString;
-
+        // GET: Login
         [HttpGet]
         public ActionResult Login()
         {
@@ -41,17 +40,19 @@ namespace SistemaWEB.Controllers
                     }
                 }
             }
+            //Validar
             if (login_acceso.User != null && login_acceso.nombre_tipo_usuario == "Administrador")
             {
                 Session["usuario"] = login_acceso.User;
                 Session["tipo_usuario"] = login_acceso.nombre_tipo_usuario;
-                //Redireccionar a otra pagina
+                //Redireccionar a la pagina Administrador con todas las opciones
                 return RedirectToAction("Index", "Home");
             }
             else if (login_acceso.User != null && login_acceso.nombre_tipo_usuario == "Cliente")
             {
                 Session["usuario"] = login_acceso.User;
                 Session["tipo_usuario"] = login_acceso.nombre_tipo_usuario;
+                //Redireccionar a la pagina Cliente con sus opciones
                 return RedirectToAction("Index", "Cliente");
             }
             else {

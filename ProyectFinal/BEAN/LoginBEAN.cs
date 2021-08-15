@@ -8,10 +8,12 @@ namespace BEAN
 {
     public class LoginBEAN
     {
+        public int idUsuario { get; set; }
         public string User { get; set; }
         public string Pass { get; set; }
-        public string tipo_usuario { get; set; }
+        public int idTipo_usuario { get; set; }
         public string user_name_new { get; set; }
         public string nombre_tipo_usuario { get; set; }
+        public bool estado_usuario { get; set; }
     }
 }
