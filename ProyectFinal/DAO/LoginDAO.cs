@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    class LoginDAO
+    public class LoginDAO
     {
     }
 }

@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace SistemaWEB.Controllers
 {
-    public class HomeController : Controller
+    public class ClienteController : Controller
     {
+        // GET: Cliente
+        [HttpGet]
         public ActionResult Index()
         {
             string user = Convert.ToString(Session["usuario"]);
@@ -17,18 +19,14 @@ namespace SistemaWEB.Controllers
             }
             return View();
         }
-
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult ListarTicket()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            string user = Convert.ToString(Session["usuario"]);
+            if (user == "")
+            {
+                return RedirectToAction("Login", "Login");
+            }
             return View();
         }
     }
