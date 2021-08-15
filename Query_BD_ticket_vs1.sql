@@ -425,8 +425,9 @@ INSERT INTO [dbo].[tb_usuario]([user_acceso], [user_pass], [idTipo_usuario], [es
 values (@user_acceso,PWDENCRYPT(@pass),@idTipousuario,1);
 --exec DBO.SP_REGISTRAR_USUARIO 'jmoreno','123456','Cliente';
 
-/*
+
 select * from tb_usuario;
+
 select * from tb_tipo_usuario;
 select u.user_acceso, tu.cod_tipo_usuario, tu.nombre_tipo_usuario
 from tb_usuario u, tb_tipo_usuario tu

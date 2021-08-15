@@ -93,31 +93,16 @@ namespace SistemaWEB.Controllers
         public ActionResult Edit(int id){
             tb_usuario prodc = new tb_usuario();
             prodc = conn.tb_usuario.Find(id);
+            ViewBag.ListaTipo = conn.tb_tipo_usuario.ToList();
             return View(prodc);
         }
-        public ActionResult Edit(LoginBEAN usuario_edicion)
+        public ActionResult Edit(tb_usuario usuarioedit)
         {
-            bool rpta = false;
-            try
-            {
-                using (var conexion = new SqlConnection(_stringConnection))
-                {
-                    using (var comando = new SqlCommand("SP_EDITAR_USUARIO", conexion))
-                    {
-                        comando.CommandType = CommandType.StoredProcedure;
-                        comando.Parameters.AddWithValue("@user_acceso_old", usuario_edicion.User);
-                        comando.Parameters.AddWithValue("@user_acceso_new", usuario_edicion.user_name_new);
-                        comando.Parameters.AddWithValue("@pass", usuario_edicion.Pass);
-                        conexion.Open();
-                        comando.ExecuteNonQuery();
-                        rpta = true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex.ToString());
-            }
+            tb_usuario usua = new tb_usuario();
+            usua = conn.tb_usuario.Find(usuarioedit.idUsuario);
+            usua.user_acceso = usuarioedit.user_acceso;
+            usua.idTipo_usuario = usuarioedit.idTipo_usuario;
+            conn.SaveChanges();
             return RedirectToAction("Index");
         }
     }

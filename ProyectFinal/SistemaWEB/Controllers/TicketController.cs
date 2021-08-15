@@ -19,5 +19,7 @@ namespace SistemaWEB.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public ActionResult 
     }
 }

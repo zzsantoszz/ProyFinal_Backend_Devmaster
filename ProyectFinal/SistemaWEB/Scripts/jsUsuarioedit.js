@@ -11,7 +11,7 @@ function modalEditarUsuario() {
 
     $.ajax({
         type: 'GET',
-        url: '/Usuario/Editar',
+        url: '/Usuario/Edit',
         beforeSend: function () {
         },
         success: function (data) {

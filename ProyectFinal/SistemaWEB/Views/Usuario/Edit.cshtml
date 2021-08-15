@@ -1,34 +1,41 @@
 ﻿@using DAO.Modelo;
-@model BEAN.LoginBEAN
+@model tb_usuario
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Modal.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Editar usuario</h2>
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.idUsuario)
-    <div class="form-horizontal">
+<div class="form-horizontal">
+    @*
         <label>@Model.idUsuario</label>
+    *@
+    @*
         <div class="form-group">
-            @Html.LabelFor(model => model.nombreProducto, new { @class = "control-label" })
-            @Html.TextBoxFor(model => model.nombreProducto, htmlAttributes: new { @class = "form-control" })
-            @*<input class="form-control" id="user_acceso" name="user_acceso" type="text" value="@Model.user_acceso"> *@
+            @Html.TextBoxFor(model => model.idUsuario, htmlAttributes: new { @class = "form-control", disabled = "disabled" })
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.descripcionProducto, new { @class = "control-label" })
-            @Html.TextBoxFor(model => model.descripcionProducto, htmlAttributes: new { @class = "form-control" })
-            @*<input class="form-control" id="user_acceso" name="user_acceso" type="text" value="@Model.user_acceso"> *@
-        </div><div class="form-group">
-            @Html.LabelFor(model => model.estadoProducto, new { @class = "control-label" })
-            @Html.TextBoxFor(model => model.estadoProducto, htmlAttributes: new { @class = "form-control" })
-            @*<input class="form-control" id="user_acceso" name="user_acceso" type="text" value="@Model.user_acceso"> *@
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Registrar" class="btn btn-success" />
-        </div>
+    *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.user_acceso, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.user_acceso, htmlAttributes: new { @class = "form-control" })
+        @*<input class="form-control" id="user_acceso" name="user_acceso" type="text" value="@Model.user_acceso"> *@
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.idTipo_usuario, new { @class = "control-label" })
+        <select class="form-control" name="idUsuario">
+            @foreach (var item in ViewBag.ListaTipo)
+            {
+                <option value="@item.idTipo_usuario">@item.nombre_tipo_usuario</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Registrar" class="btn btn-success" />
+    </div>
+</div>
 }
