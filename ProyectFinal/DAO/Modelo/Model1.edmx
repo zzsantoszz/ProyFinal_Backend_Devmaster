@@ -1,0 +1,1082 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BD_ticket_vs1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_area_atencion">
+          <Key>
+            <PropertyRef Name="idArea_atencion" />
+          </Key>
+          <Property Name="idArea_atencion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_area_atencion" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_area_atencion" Type="varchar" MaxLength="50" />
+          <Property Name="idUbicacion_area" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_asunto_ticket">
+          <Key>
+            <PropertyRef Name="idAsunto_ticket" />
+          </Key>
+          <Property Name="idAsunto_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_asunto" Type="varchar" MaxLength="50" />
+          <Property Name="asunto_descripcion_ticket" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_categoria_ticket">
+          <Key>
+            <PropertyRef Name="idCategoria_ticket" />
+          </Key>
+          <Property Name="idCategoria_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_categoria_ticket" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_categoria_ticket" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_subcategoria_ticket" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_elemento_ticket" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_paterno_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_materno_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="correo_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="cargo_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="estado_cliente" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_estado_ticket">
+          <Key>
+            <PropertyRef Name="idEstado_ticket" />
+          </Key>
+          <Property Name="idEstado_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_estado_ticket" Type="varchar" MaxLength="50" />
+          <Property Name="estado_ticket" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_modo_ticket">
+          <Key>
+            <PropertyRef Name="idModo_ticket" />
+          </Key>
+          <Property Name="idModo_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_modo_ticket" Type="varchar" MaxLength="50" />
+          <Property Name="modo_ticket" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_nivel_ticket">
+          <Key>
+            <PropertyRef Name="idNivel_ticket" />
+          </Key>
+          <Property Name="idNivel_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_nivel_ticket" Type="varchar" MaxLength="50" />
+          <Property Name="nivel_ticket" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_prioridad_ticket">
+          <Key>
+            <PropertyRef Name="idPrioridad_ticket" />
+          </Key>
+          <Property Name="idPrioridad_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_prioridad_ticket" Type="varchar" MaxLength="50" />
+          <Property Name="prioridad_ticket" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tb_puesto">
+          <Key>
+            <PropertyRef Name="idPuesto" />
+          </Key>
+          <Property Name="idPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_puesto" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_puesto" Type="varchar" MaxLength="50" />
+          <Property Name="idArea_atencion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_responsable">
+          <Key>
+            <PropertyRef Name="idResponsable" />
+          </Key>
+          <Property Name="idResponsable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codresponsable" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_responsable" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_paterno_responsable" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_materno_responsable" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="idArea_atencion" Type="int" Nullable="false" />
+          <Property Name="idPuesto" Type="int" Nullable="false" />
+          <Property Name="estado_responsable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_responsable_ticket">
+          <Key>
+            <PropertyRef Name="idResponsable_ticket" />
+          </Key>
+          <Property Name="idResponsable_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTicket" Type="int" Nullable="false" />
+          <Property Name="idResponsable" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_ticket">
+          <Key>
+            <PropertyRef Name="idTicket" />
+          </Key>
+          <Property Name="idTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codticket" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="detalle_ticket" Type="varchar" MaxLength="1000" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="idEstado_ticket" Type="int" Nullable="false" />
+          <Property Name="idModo_ticket" Type="int" Nullable="false" />
+          <Property Name="idNivel_ticket" Type="int" Nullable="false" />
+          <Property Name="idPrioridad_ticket" Type="int" Nullable="false" />
+          <Property Name="idCategoria_ticket" Type="int" Nullable="false" />
+          <Property Name="idAsunto_ticket" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_tipo_usuario">
+          <Key>
+            <PropertyRef Name="idTipo_usuario" />
+          </Key>
+          <Property Name="idTipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_tipo_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre_tipo_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_ubicacion_area">
+          <Key>
+            <PropertyRef Name="idUbicacion_area" />
+          </Key>
+          <Property Name="idUbicacion_area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_ubicacion_area" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_edificio" Type="varchar" MaxLength="50" />
+          <Property Name="numero_piso" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_usuario" Type="varchar" MaxLength="50" />
+          <Property Name="user_acceso" Type="varchar" MaxLength="50" />
+          <Property Name="user_pass" Type="varbinary(max)" />
+          <Property Name="idTipo_usuario" Type="int" Nullable="false" />
+          <Property Name="estado_usuario" Type="bit" />
+        </EntityType>
+        <Association Name="fk_area_atencion_ubicacion_area">
+          <End Role="tb_ubicacion_area" Type="Self.tb_ubicacion_area" Multiplicity="1" />
+          <End Role="tb_area_atencion" Type="Self.tb_area_atencion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ubicacion_area">
+              <PropertyRef Name="idUbicacion_area" />
+            </Principal>
+            <Dependent Role="tb_area_atencion">
+              <PropertyRef Name="idUbicacion_area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cliente_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="tb_cliente">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_puesto_area_atencion">
+          <End Role="tb_area_atencion" Type="Self.tb_area_atencion" Multiplicity="1" />
+          <End Role="tb_puesto" Type="Self.tb_puesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_area_atencion">
+              <PropertyRef Name="idArea_atencion" />
+            </Principal>
+            <Dependent Role="tb_puesto">
+              <PropertyRef Name="idArea_atencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_area_atencion">
+          <End Role="tb_area_atencion" Type="Self.tb_area_atencion" Multiplicity="1" />
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_area_atencion">
+              <PropertyRef Name="idArea_atencion" />
+            </Principal>
+            <Dependent Role="tb_responsable">
+              <PropertyRef Name="idArea_atencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_puesto">
+          <End Role="tb_puesto" Type="Self.tb_puesto" Multiplicity="1" />
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_puesto">
+              <PropertyRef Name="idPuesto" />
+            </Principal>
+            <Dependent Role="tb_responsable">
+              <PropertyRef Name="idPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_ticket">
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="1" />
+          <End Role="tb_responsable_ticket" Type="Self.tb_responsable_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ticket">
+              <PropertyRef Name="idTicket" />
+            </Principal>
+            <Dependent Role="tb_responsable_ticket">
+              <PropertyRef Name="idTicket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="tb_responsable">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_categoria_ticket">
+          <End Role="tb_categoria_ticket" Type="Self.tb_categoria_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_categoria_ticket">
+              <PropertyRef Name="idCategoria_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idCategoria_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_cliente">
+          <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_detalle_ticket">
+          <End Role="tb_asunto_ticket" Type="Self.tb_asunto_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_asunto_ticket">
+              <PropertyRef Name="idAsunto_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idAsunto_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_estado_ticket">
+          <End Role="tb_estado_ticket" Type="Self.tb_estado_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_estado_ticket">
+              <PropertyRef Name="idEstado_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idEstado_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_modo_ticket">
+          <End Role="tb_modo_ticket" Type="Self.tb_modo_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_modo_ticket">
+              <PropertyRef Name="idModo_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idModo_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_nivel_ticket">
+          <End Role="tb_nivel_ticket" Type="Self.tb_nivel_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_nivel_ticket">
+              <PropertyRef Name="idNivel_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idNivel_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_prioridad_ticket">
+          <End Role="tb_prioridad_ticket" Type="Self.tb_prioridad_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_prioridad_ticket">
+              <PropertyRef Name="idPrioridad_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idPrioridad_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_responsable">
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="1" />
+          <End Role="tb_responsable_ticket" Type="Self.tb_responsable_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_responsable">
+              <PropertyRef Name="idResponsable" />
+            </Principal>
+            <Dependent Role="tb_responsable_ticket">
+              <PropertyRef Name="idResponsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_tipo">
+          <End Role="tb_tipo_usuario" Type="Self.tb_tipo_usuario" Multiplicity="1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipo_usuario">
+              <PropertyRef Name="idTipo_usuario" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="idTipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_ticket_vs1ModelStoreContainer">
+          <EntitySet Name="tb_area_atencion" EntityType="Self.tb_area_atencion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_asunto_ticket" EntityType="Self.tb_asunto_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_categoria_ticket" EntityType="Self.tb_categoria_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_estado_ticket" EntityType="Self.tb_estado_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_modo_ticket" EntityType="Self.tb_modo_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_nivel_ticket" EntityType="Self.tb_nivel_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_prioridad_ticket" EntityType="Self.tb_prioridad_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_puesto" EntityType="Self.tb_puesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_responsable" EntityType="Self.tb_responsable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_responsable_ticket" EntityType="Self.tb_responsable_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ticket" EntityType="Self.tb_ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tipo_usuario" EntityType="Self.tb_tipo_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ubicacion_area" EntityType="Self.tb_ubicacion_area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_area_atencion_ubicacion_area" Association="Self.fk_area_atencion_ubicacion_area">
+            <End Role="tb_ubicacion_area" EntitySet="tb_ubicacion_area" />
+            <End Role="tb_area_atencion" EntitySet="tb_area_atencion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cliente_usuario" Association="Self.fk_cliente_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_cliente" EntitySet="tb_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_puesto_area_atencion" Association="Self.fk_puesto_area_atencion">
+            <End Role="tb_area_atencion" EntitySet="tb_area_atencion" />
+            <End Role="tb_puesto" EntitySet="tb_puesto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_area_atencion" Association="Self.fk_responsable_area_atencion">
+            <End Role="tb_area_atencion" EntitySet="tb_area_atencion" />
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_puesto" Association="Self.fk_responsable_puesto">
+            <End Role="tb_puesto" EntitySet="tb_puesto" />
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_ticket" Association="Self.fk_responsable_ticket">
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+            <End Role="tb_responsable_ticket" EntitySet="tb_responsable_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_usuario" Association="Self.fk_responsable_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_categoria_ticket" Association="Self.fk_ticket_categoria_ticket">
+            <End Role="tb_categoria_ticket" EntitySet="tb_categoria_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_cliente" Association="Self.fk_ticket_cliente">
+            <End Role="tb_cliente" EntitySet="tb_cliente" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_detalle_ticket" Association="Self.fk_ticket_detalle_ticket">
+            <End Role="tb_asunto_ticket" EntitySet="tb_asunto_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_estado_ticket" Association="Self.fk_ticket_estado_ticket">
+            <End Role="tb_estado_ticket" EntitySet="tb_estado_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_modo_ticket" Association="Self.fk_ticket_modo_ticket">
+            <End Role="tb_modo_ticket" EntitySet="tb_modo_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_nivel_ticket" Association="Self.fk_ticket_nivel_ticket">
+            <End Role="tb_nivel_ticket" EntitySet="tb_nivel_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_prioridad_ticket" Association="Self.fk_ticket_prioridad_ticket">
+            <End Role="tb_prioridad_ticket" EntitySet="tb_prioridad_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_responsable" Association="Self.fk_ticket_responsable">
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+            <End Role="tb_responsable_ticket" EntitySet="tb_responsable_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_tipo" Association="Self.fk_usuario_tipo">
+            <End Role="tb_tipo_usuario" EntitySet="tb_tipo_usuario" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_ticket_vs1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_area_atencion">
+          <Key>
+            <PropertyRef Name="idArea_atencion" />
+          </Key>
+          <Property Name="idArea_atencion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_area_atencion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_area_atencion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUbicacion_area" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_ubicacion_area" Relationship="Self.fk_area_atencion_ubicacion_area" FromRole="tb_area_atencion" ToRole="tb_ubicacion_area" />
+          <NavigationProperty Name="tb_puesto" Relationship="Self.fk_puesto_area_atencion" FromRole="tb_area_atencion" ToRole="tb_puesto" />
+          <NavigationProperty Name="tb_responsable" Relationship="Self.fk_responsable_area_atencion" FromRole="tb_area_atencion" ToRole="tb_responsable" />
+        </EntityType>
+        <EntityType Name="tb_asunto_ticket">
+          <Key>
+            <PropertyRef Name="idAsunto_ticket" />
+          </Key>
+          <Property Name="idAsunto_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_asunto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="asunto_descripcion_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_ticket_detalle_ticket" FromRole="tb_asunto_ticket" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_categoria_ticket">
+          <Key>
+            <PropertyRef Name="idCategoria_ticket" />
+          </Key>
+          <Property Name="idCategoria_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_categoria_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_categoria_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_subcategoria_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_elemento_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_ticket_categoria_ticket" FromRole="tb_categoria_ticket" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_paterno_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_materno_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cargo_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="estado_cliente" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.fk_cliente_usuario" FromRole="tb_cliente" ToRole="tb_usuario" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_ticket_cliente" FromRole="tb_cliente" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_estado_ticket">
+          <Key>
+            <PropertyRef Name="idEstado_ticket" />
+          </Key>
+          <Property Name="idEstado_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_estado_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_ticket_estado_ticket" FromRole="tb_estado_ticket" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_modo_ticket">
+          <Key>
+            <PropertyRef Name="idModo_ticket" />
+          </Key>
+          <Property Name="idModo_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_modo_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modo_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_ticket_modo_ticket" FromRole="tb_modo_ticket" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_nivel_ticket">
+          <Key>
+            <PropertyRef Name="idNivel_ticket" />
+          </Key>
+          <Property Name="idNivel_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_nivel_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nivel_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_ticket_nivel_ticket" FromRole="tb_nivel_ticket" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_prioridad_ticket">
+          <Key>
+            <PropertyRef Name="idPrioridad_ticket" />
+          </Key>
+          <Property Name="idPrioridad_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_prioridad_ticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prioridad_ticket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_ticket_prioridad_ticket" FromRole="tb_prioridad_ticket" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_puesto">
+          <Key>
+            <PropertyRef Name="idPuesto" />
+          </Key>
+          <Property Name="idPuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idArea_atencion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_area_atencion" Relationship="Self.fk_puesto_area_atencion" FromRole="tb_puesto" ToRole="tb_area_atencion" />
+          <NavigationProperty Name="tb_responsable" Relationship="Self.fk_responsable_puesto" FromRole="tb_puesto" ToRole="tb_responsable" />
+        </EntityType>
+        <EntityType Name="tb_responsable">
+          <Key>
+            <PropertyRef Name="idResponsable" />
+          </Key>
+          <Property Name="idResponsable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codresponsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_paterno_responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_materno_responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="idArea_atencion" Type="Int32" Nullable="false" />
+          <Property Name="idPuesto" Type="Int32" Nullable="false" />
+          <Property Name="estado_responsable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tb_area_atencion" Relationship="Self.fk_responsable_area_atencion" FromRole="tb_responsable" ToRole="tb_area_atencion" />
+          <NavigationProperty Name="tb_puesto" Relationship="Self.fk_responsable_puesto" FromRole="tb_responsable" ToRole="tb_puesto" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.fk_responsable_usuario" FromRole="tb_responsable" ToRole="tb_usuario" />
+          <NavigationProperty Name="tb_responsable_ticket" Relationship="Self.fk_ticket_responsable" FromRole="tb_responsable" ToRole="tb_responsable_ticket" />
+        </EntityType>
+        <EntityType Name="tb_responsable_ticket">
+          <Key>
+            <PropertyRef Name="idResponsable_ticket" />
+          </Key>
+          <Property Name="idResponsable_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTicket" Type="Int32" Nullable="false" />
+          <Property Name="idResponsable" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_responsable" Relationship="Self.fk_ticket_responsable" FromRole="tb_responsable_ticket" ToRole="tb_responsable" />
+          <NavigationProperty Name="tb_ticket" Relationship="Self.fk_responsable_ticket" FromRole="tb_responsable_ticket" ToRole="tb_ticket" />
+        </EntityType>
+        <EntityType Name="tb_ticket">
+          <Key>
+            <PropertyRef Name="idTicket" />
+          </Key>
+          <Property Name="idTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codticket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detalle_ticket" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="idEstado_ticket" Type="Int32" Nullable="false" />
+          <Property Name="idModo_ticket" Type="Int32" Nullable="false" />
+          <Property Name="idNivel_ticket" Type="Int32" Nullable="false" />
+          <Property Name="idPrioridad_ticket" Type="Int32" Nullable="false" />
+          <Property Name="idCategoria_ticket" Type="Int32" Nullable="false" />
+          <Property Name="idAsunto_ticket" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_asunto_ticket" Relationship="Self.fk_ticket_detalle_ticket" FromRole="tb_ticket" ToRole="tb_asunto_ticket" />
+          <NavigationProperty Name="tb_categoria_ticket" Relationship="Self.fk_ticket_categoria_ticket" FromRole="tb_ticket" ToRole="tb_categoria_ticket" />
+          <NavigationProperty Name="tb_cliente" Relationship="Self.fk_ticket_cliente" FromRole="tb_ticket" ToRole="tb_cliente" />
+          <NavigationProperty Name="tb_estado_ticket" Relationship="Self.fk_ticket_estado_ticket" FromRole="tb_ticket" ToRole="tb_estado_ticket" />
+          <NavigationProperty Name="tb_modo_ticket" Relationship="Self.fk_ticket_modo_ticket" FromRole="tb_ticket" ToRole="tb_modo_ticket" />
+          <NavigationProperty Name="tb_nivel_ticket" Relationship="Self.fk_ticket_nivel_ticket" FromRole="tb_ticket" ToRole="tb_nivel_ticket" />
+          <NavigationProperty Name="tb_prioridad_ticket" Relationship="Self.fk_ticket_prioridad_ticket" FromRole="tb_ticket" ToRole="tb_prioridad_ticket" />
+          <NavigationProperty Name="tb_responsable_ticket" Relationship="Self.fk_responsable_ticket" FromRole="tb_ticket" ToRole="tb_responsable_ticket" />
+        </EntityType>
+        <EntityType Name="tb_tipo_usuario">
+          <Key>
+            <PropertyRef Name="idTipo_usuario" />
+          </Key>
+          <Property Name="idTipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_tipo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_tipo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.fk_usuario_tipo" FromRole="tb_tipo_usuario" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="tb_ubicacion_area">
+          <Key>
+            <PropertyRef Name="idUbicacion_area" />
+          </Key>
+          <Property Name="idUbicacion_area" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_ubicacion_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_edificio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numero_piso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_area_atencion" Relationship="Self.fk_area_atencion_ubicacion_area" FromRole="tb_ubicacion_area" ToRole="tb_area_atencion" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_acceso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_pass" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="idTipo_usuario" Type="Int32" Nullable="false" />
+          <Property Name="estado_usuario" Type="Boolean" />
+          <NavigationProperty Name="tb_cliente" Relationship="Self.fk_cliente_usuario" FromRole="tb_usuario" ToRole="tb_cliente" />
+          <NavigationProperty Name="tb_responsable" Relationship="Self.fk_responsable_usuario" FromRole="tb_usuario" ToRole="tb_responsable" />
+          <NavigationProperty Name="tb_tipo_usuario" Relationship="Self.fk_usuario_tipo" FromRole="tb_usuario" ToRole="tb_tipo_usuario" />
+        </EntityType>
+        <Association Name="fk_area_atencion_ubicacion_area">
+          <End Role="tb_ubicacion_area" Type="Self.tb_ubicacion_area" Multiplicity="1" />
+          <End Role="tb_area_atencion" Type="Self.tb_area_atencion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ubicacion_area">
+              <PropertyRef Name="idUbicacion_area" />
+            </Principal>
+            <Dependent Role="tb_area_atencion">
+              <PropertyRef Name="idUbicacion_area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_puesto_area_atencion">
+          <End Role="tb_area_atencion" Type="Self.tb_area_atencion" Multiplicity="1" />
+          <End Role="tb_puesto" Type="Self.tb_puesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_area_atencion">
+              <PropertyRef Name="idArea_atencion" />
+            </Principal>
+            <Dependent Role="tb_puesto">
+              <PropertyRef Name="idArea_atencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_area_atencion">
+          <End Role="tb_area_atencion" Type="Self.tb_area_atencion" Multiplicity="1" />
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_area_atencion">
+              <PropertyRef Name="idArea_atencion" />
+            </Principal>
+            <Dependent Role="tb_responsable">
+              <PropertyRef Name="idArea_atencion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_detalle_ticket">
+          <End Role="tb_asunto_ticket" Type="Self.tb_asunto_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_asunto_ticket">
+              <PropertyRef Name="idAsunto_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idAsunto_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_categoria_ticket">
+          <End Role="tb_categoria_ticket" Type="Self.tb_categoria_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_categoria_ticket">
+              <PropertyRef Name="idCategoria_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idCategoria_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cliente_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="tb_cliente">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_cliente">
+          <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_estado_ticket">
+          <End Role="tb_estado_ticket" Type="Self.tb_estado_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_estado_ticket">
+              <PropertyRef Name="idEstado_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idEstado_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_modo_ticket">
+          <End Role="tb_modo_ticket" Type="Self.tb_modo_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_modo_ticket">
+              <PropertyRef Name="idModo_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idModo_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_nivel_ticket">
+          <End Role="tb_nivel_ticket" Type="Self.tb_nivel_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_nivel_ticket">
+              <PropertyRef Name="idNivel_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idNivel_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_prioridad_ticket">
+          <End Role="tb_prioridad_ticket" Type="Self.tb_prioridad_ticket" Multiplicity="1" />
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_prioridad_ticket">
+              <PropertyRef Name="idPrioridad_ticket" />
+            </Principal>
+            <Dependent Role="tb_ticket">
+              <PropertyRef Name="idPrioridad_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_puesto">
+          <End Role="tb_puesto" Type="Self.tb_puesto" Multiplicity="1" />
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_puesto">
+              <PropertyRef Name="idPuesto" />
+            </Principal>
+            <Dependent Role="tb_responsable">
+              <PropertyRef Name="idPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="tb_responsable">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ticket_responsable">
+          <End Role="tb_responsable" Type="Self.tb_responsable" Multiplicity="1" />
+          <End Role="tb_responsable_ticket" Type="Self.tb_responsable_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_responsable">
+              <PropertyRef Name="idResponsable" />
+            </Principal>
+            <Dependent Role="tb_responsable_ticket">
+              <PropertyRef Name="idResponsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_responsable_ticket">
+          <End Role="tb_ticket" Type="Self.tb_ticket" Multiplicity="1" />
+          <End Role="tb_responsable_ticket" Type="Self.tb_responsable_ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ticket">
+              <PropertyRef Name="idTicket" />
+            </Principal>
+            <Dependent Role="tb_responsable_ticket">
+              <PropertyRef Name="idTicket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_tipo">
+          <End Role="tb_tipo_usuario" Type="Self.tb_tipo_usuario" Multiplicity="1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipo_usuario">
+              <PropertyRef Name="idTipo_usuario" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="idTipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_ticket_vs1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_area_atencion" EntityType="Self.tb_area_atencion" />
+          <EntitySet Name="tb_asunto_ticket" EntityType="Self.tb_asunto_ticket" />
+          <EntitySet Name="tb_categoria_ticket" EntityType="Self.tb_categoria_ticket" />
+          <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" />
+          <EntitySet Name="tb_estado_ticket" EntityType="Self.tb_estado_ticket" />
+          <EntitySet Name="tb_modo_ticket" EntityType="Self.tb_modo_ticket" />
+          <EntitySet Name="tb_nivel_ticket" EntityType="Self.tb_nivel_ticket" />
+          <EntitySet Name="tb_prioridad_ticket" EntityType="Self.tb_prioridad_ticket" />
+          <EntitySet Name="tb_puesto" EntityType="Self.tb_puesto" />
+          <EntitySet Name="tb_responsable" EntityType="Self.tb_responsable" />
+          <EntitySet Name="tb_responsable_ticket" EntityType="Self.tb_responsable_ticket" />
+          <EntitySet Name="tb_ticket" EntityType="Self.tb_ticket" />
+          <EntitySet Name="tb_tipo_usuario" EntityType="Self.tb_tipo_usuario" />
+          <EntitySet Name="tb_ubicacion_area" EntityType="Self.tb_ubicacion_area" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" />
+          <AssociationSet Name="fk_area_atencion_ubicacion_area" Association="Self.fk_area_atencion_ubicacion_area">
+            <End Role="tb_ubicacion_area" EntitySet="tb_ubicacion_area" />
+            <End Role="tb_area_atencion" EntitySet="tb_area_atencion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_puesto_area_atencion" Association="Self.fk_puesto_area_atencion">
+            <End Role="tb_area_atencion" EntitySet="tb_area_atencion" />
+            <End Role="tb_puesto" EntitySet="tb_puesto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_area_atencion" Association="Self.fk_responsable_area_atencion">
+            <End Role="tb_area_atencion" EntitySet="tb_area_atencion" />
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_detalle_ticket" Association="Self.fk_ticket_detalle_ticket">
+            <End Role="tb_asunto_ticket" EntitySet="tb_asunto_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_categoria_ticket" Association="Self.fk_ticket_categoria_ticket">
+            <End Role="tb_categoria_ticket" EntitySet="tb_categoria_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cliente_usuario" Association="Self.fk_cliente_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_cliente" EntitySet="tb_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_cliente" Association="Self.fk_ticket_cliente">
+            <End Role="tb_cliente" EntitySet="tb_cliente" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_estado_ticket" Association="Self.fk_ticket_estado_ticket">
+            <End Role="tb_estado_ticket" EntitySet="tb_estado_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_modo_ticket" Association="Self.fk_ticket_modo_ticket">
+            <End Role="tb_modo_ticket" EntitySet="tb_modo_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_nivel_ticket" Association="Self.fk_ticket_nivel_ticket">
+            <End Role="tb_nivel_ticket" EntitySet="tb_nivel_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_prioridad_ticket" Association="Self.fk_ticket_prioridad_ticket">
+            <End Role="tb_prioridad_ticket" EntitySet="tb_prioridad_ticket" />
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_puesto" Association="Self.fk_responsable_puesto">
+            <End Role="tb_puesto" EntitySet="tb_puesto" />
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_usuario" Association="Self.fk_responsable_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ticket_responsable" Association="Self.fk_ticket_responsable">
+            <End Role="tb_responsable" EntitySet="tb_responsable" />
+            <End Role="tb_responsable_ticket" EntitySet="tb_responsable_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_responsable_ticket" Association="Self.fk_responsable_ticket">
+            <End Role="tb_ticket" EntitySet="tb_ticket" />
+            <End Role="tb_responsable_ticket" EntitySet="tb_responsable_ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_tipo" Association="Self.fk_usuario_tipo">
+            <End Role="tb_tipo_usuario" EntitySet="tb_tipo_usuario" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_ticket_vs1ModelStoreContainer" CdmEntityContainer="BD_ticket_vs1Entities">
+          <EntitySetMapping Name="tb_area_atencion">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_area_atencion">
+              <MappingFragment StoreEntitySet="tb_area_atencion">
+                <ScalarProperty Name="idArea_atencion" ColumnName="idArea_atencion" />
+                <ScalarProperty Name="cod_area_atencion" ColumnName="cod_area_atencion" />
+                <ScalarProperty Name="nombre_area_atencion" ColumnName="nombre_area_atencion" />
+                <ScalarProperty Name="idUbicacion_area" ColumnName="idUbicacion_area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_asunto_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_asunto_ticket">
+              <MappingFragment StoreEntitySet="tb_asunto_ticket">
+                <ScalarProperty Name="idAsunto_ticket" ColumnName="idAsunto_ticket" />
+                <ScalarProperty Name="codigo_asunto" ColumnName="codigo_asunto" />
+                <ScalarProperty Name="asunto_descripcion_ticket" ColumnName="asunto_descripcion_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_categoria_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_categoria_ticket">
+              <MappingFragment StoreEntitySet="tb_categoria_ticket">
+                <ScalarProperty Name="idCategoria_ticket" ColumnName="idCategoria_ticket" />
+                <ScalarProperty Name="codigo_categoria_ticket" ColumnName="codigo_categoria_ticket" />
+                <ScalarProperty Name="nombre_categoria_ticket" ColumnName="nombre_categoria_ticket" />
+                <ScalarProperty Name="nombre_subcategoria_ticket" ColumnName="nombre_subcategoria_ticket" />
+                <ScalarProperty Name="nombre_elemento_ticket" ColumnName="nombre_elemento_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_cliente">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_cliente">
+              <MappingFragment StoreEntitySet="tb_cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+                <ScalarProperty Name="apellido_paterno_cliente" ColumnName="apellido_paterno_cliente" />
+                <ScalarProperty Name="apellido_materno_cliente" ColumnName="apellido_materno_cliente" />
+                <ScalarProperty Name="correo_cliente" ColumnName="correo_cliente" />
+                <ScalarProperty Name="cargo_cliente" ColumnName="cargo_cliente" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="estado_cliente" ColumnName="estado_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_estado_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_estado_ticket">
+              <MappingFragment StoreEntitySet="tb_estado_ticket">
+                <ScalarProperty Name="idEstado_ticket" ColumnName="idEstado_ticket" />
+                <ScalarProperty Name="cod_estado_ticket" ColumnName="cod_estado_ticket" />
+                <ScalarProperty Name="estado_ticket" ColumnName="estado_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_modo_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_modo_ticket">
+              <MappingFragment StoreEntitySet="tb_modo_ticket">
+                <ScalarProperty Name="idModo_ticket" ColumnName="idModo_ticket" />
+                <ScalarProperty Name="cod_modo_ticket" ColumnName="cod_modo_ticket" />
+                <ScalarProperty Name="modo_ticket" ColumnName="modo_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_nivel_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_nivel_ticket">
+              <MappingFragment StoreEntitySet="tb_nivel_ticket">
+                <ScalarProperty Name="idNivel_ticket" ColumnName="idNivel_ticket" />
+                <ScalarProperty Name="cod_nivel_ticket" ColumnName="cod_nivel_ticket" />
+                <ScalarProperty Name="nivel_ticket" ColumnName="nivel_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_prioridad_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_prioridad_ticket">
+              <MappingFragment StoreEntitySet="tb_prioridad_ticket">
+                <ScalarProperty Name="idPrioridad_ticket" ColumnName="idPrioridad_ticket" />
+                <ScalarProperty Name="cod_prioridad_ticket" ColumnName="cod_prioridad_ticket" />
+                <ScalarProperty Name="prioridad_ticket" ColumnName="prioridad_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_puesto">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_puesto">
+              <MappingFragment StoreEntitySet="tb_puesto">
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+                <ScalarProperty Name="cod_puesto" ColumnName="cod_puesto" />
+                <ScalarProperty Name="nombre_puesto" ColumnName="nombre_puesto" />
+                <ScalarProperty Name="idArea_atencion" ColumnName="idArea_atencion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_responsable">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_responsable">
+              <MappingFragment StoreEntitySet="tb_responsable">
+                <ScalarProperty Name="idResponsable" ColumnName="idResponsable" />
+                <ScalarProperty Name="codresponsable" ColumnName="codresponsable" />
+                <ScalarProperty Name="nombre_responsable" ColumnName="nombre_responsable" />
+                <ScalarProperty Name="apellido_paterno_responsable" ColumnName="apellido_paterno_responsable" />
+                <ScalarProperty Name="apellido_materno_responsable" ColumnName="apellido_materno_responsable" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idArea_atencion" ColumnName="idArea_atencion" />
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+                <ScalarProperty Name="estado_responsable" ColumnName="estado_responsable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_responsable_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_responsable_ticket">
+              <MappingFragment StoreEntitySet="tb_responsable_ticket">
+                <ScalarProperty Name="idResponsable_ticket" ColumnName="idResponsable_ticket" />
+                <ScalarProperty Name="idTicket" ColumnName="idTicket" />
+                <ScalarProperty Name="idResponsable" ColumnName="idResponsable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ticket">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_ticket">
+              <MappingFragment StoreEntitySet="tb_ticket">
+                <ScalarProperty Name="idTicket" ColumnName="idTicket" />
+                <ScalarProperty Name="codticket" ColumnName="codticket" />
+                <ScalarProperty Name="detalle_ticket" ColumnName="detalle_ticket" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="idEstado_ticket" ColumnName="idEstado_ticket" />
+                <ScalarProperty Name="idModo_ticket" ColumnName="idModo_ticket" />
+                <ScalarProperty Name="idNivel_ticket" ColumnName="idNivel_ticket" />
+                <ScalarProperty Name="idPrioridad_ticket" ColumnName="idPrioridad_ticket" />
+                <ScalarProperty Name="idCategoria_ticket" ColumnName="idCategoria_ticket" />
+                <ScalarProperty Name="idAsunto_ticket" ColumnName="idAsunto_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tipo_usuario">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_tipo_usuario">
+              <MappingFragment StoreEntitySet="tb_tipo_usuario">
+                <ScalarProperty Name="idTipo_usuario" ColumnName="idTipo_usuario" />
+                <ScalarProperty Name="cod_tipo_usuario" ColumnName="cod_tipo_usuario" />
+                <ScalarProperty Name="nombre_tipo_usuario" ColumnName="nombre_tipo_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ubicacion_area">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_ubicacion_area">
+              <MappingFragment StoreEntitySet="tb_ubicacion_area">
+                <ScalarProperty Name="idUbicacion_area" ColumnName="idUbicacion_area" />
+                <ScalarProperty Name="cod_ubicacion_area" ColumnName="cod_ubicacion_area" />
+                <ScalarProperty Name="nombre_edificio" ColumnName="nombre_edificio" />
+                <ScalarProperty Name="numero_piso" ColumnName="numero_piso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_usuario">
+            <EntityTypeMapping TypeName="BD_ticket_vs1Model.tb_usuario">
+              <MappingFragment StoreEntitySet="tb_usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
+                <ScalarProperty Name="user_acceso" ColumnName="user_acceso" />
+                <ScalarProperty Name="user_pass" ColumnName="user_pass" />
+                <ScalarProperty Name="idTipo_usuario" ColumnName="idTipo_usuario" />
+                <ScalarProperty Name="estado_usuario" ColumnName="estado_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
