@@ -134,16 +134,30 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap.css" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap.css.map" />
+    <Content Include="Content\bootstrap 4.0.0\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -155,6 +169,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="img\background.jpg" />
+    <Content Include="img\background___.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\MEF_sede.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,0 +1,99 @@
+body{
+    background: url(../img/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.items {
+    flex-basis: auto;
+    max-width: 100%;
+    flex-grow: 1;
+    /*width: 200px;
+    height: 200px;*/
+    /*background-color: pink;*/
+    /*border: 1px solid black;*/
+}
+
+.caja1{
+    width: 40%;
+}
+
+.caja2{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container-principal {
+    margin-top: 5rem!important;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20%;
+    padding-left: 20%;
+}
+
+.bg{
+    background: url(../img/MEF_sede.png) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.bg-white {
+    background-color: #fff!important;
+}
+
+ul{
+    list-style:none;
+}
+
+.form-check {
+    padding-left: 1.25rem;
+}
+
+.user-img img {
+    height: 50px;
+}
+
+.user-img {
+    text-align: right;
+}
+
+/*body {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.42857143;
+}
+*/
+/*
+.main-header {*/
+    /*background-color: #367fa9;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+    position: relative;
+    max-height: 100px;
+    z-index: 1030*/
+ /*   background-color: #367fa9;
+    border-bottom: 0 solid transparent;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    z-index: 100;
+}*/
+/*
+.icono-image {
+    width: 100%;
+    max-width: 30px;
+    margin-left: 10px;
+}
+
+.icono-titulo {
+    position: absolute;
+    padding: 8px 5px 5px 15px;
+    line-height: 1;
+    font-size: 15px;
+}
+*/
