@@ -1,8 +1,45 @@
-﻿
+﻿@using DAO.Modelo
+@model List<tb_asunto_ticket>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Asunto de Tickets</h2>
+<h2>Lista de Asunto de Tickets: </h2>
+@Html.ActionLink("Crear", "New", "Ticket")
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id Asunto</td>
+            <td>Codigo Asunto</td>
+            <td>Descripcion Asunto</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.idAsunto_ticket</td>
+                <td>@item.codigo_asunto</td>
+                <td>@item.asunto_descripcion_ticket</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idAsunto_ticket }) |
+
+                    @Html.ActionLink(" ", "Delete"
+           , new { id = item.idAsunto_ticket }
+           , new
+           {
+               @class = "btn btn-danger glyphicon glyphicon-remove",
+               @title = "Eliminar",
+               @onclick = "return confirm('Desea eliminar el asunto?');"
+           }
+           )
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 

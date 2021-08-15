@@ -208,6 +208,8 @@
     <Content Include="Views\Cliente\ListarTicket.cshtml" />
     <Content Include="Views\Usuario\New.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\AsuntoTicket\New.cshtml" />
+    <Content Include="Views\AsuntoTicket\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
