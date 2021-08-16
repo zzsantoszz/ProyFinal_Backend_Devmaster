@@ -105,5 +105,21 @@ namespace SistemaWEB.Controllers
             conn.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Delete(int id, bool estado)
+        {
+            tb_usuario usuarioo = new tb_usuario();
+            usuarioo = conn.tb_usuario.Find(id);
+            if (estado == true)
+            {
+                usuarioo.estado_usuario = false;
+            }
+            else if (estado == false)
+            {
+                usuarioo.estado_usuario = true;
+            }
+            conn.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
