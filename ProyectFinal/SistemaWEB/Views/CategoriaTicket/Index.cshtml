@@ -1,8 +1,56 @@
-﻿
+﻿@using DAO.Modelo
+@model List<tb_categoria_ticket>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Categoria Tickets</h2>
+<h2>Listar Categoria de Tickets: </h2>
+<a onclick="modalCrearCategoriaTicket(this)" class="btn btn-info glyphicon glyphicon-user" title="Nueva Categoria Ticket"></a>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id Categoria</td>
+            <td>Nombre Categoria</td>
+            <td>Nombre SubCategoria</td>
+            <td>Nombre Elemento Categoria</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.idCategoria_ticket</td>
+                <td>@item.nombre_categoria_ticket</td>
+                <td>@item.nombre_subcategoria_ticket</td>
+                <td>@item.nombre_elemento_ticket</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idCategoria_ticket }) |
 
+                    @Html.ActionLink(" ", "Delete"
+           , new { id = item.idCategoria_ticket }
+           , new
+           {
+               @class = "btn btn-danger glyphicon glyphicon-remove",
+               @title = "Eliminar",
+               @onclick = "return confirm('Desea eliminar el asunto?');"
+           }
+           )
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $.getScript("/Scripts/jsCategoriaTicket.js")
+        .done(function (script, textStatus) {
+            //console.log(textStatus);
+        })
+        .fail(function (jqxhr, settings, exception) {
+            console.log("Fallo carad de cript js.");
+            console.log(exception);
+        });
+</script>

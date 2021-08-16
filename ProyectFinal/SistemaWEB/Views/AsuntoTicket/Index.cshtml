@@ -7,7 +7,7 @@
 }
 
 <h2>Lista de Asunto de Tickets: </h2>
-@Html.ActionLink("Crear", "New", "Ticket")
+<a onclick="modalCrearAsuntoTicket(this)" class="btn btn-info glyphicon glyphicon-user" title="Nuevo AsuntoTicket"></a>
 <table class="table">
     <thead>
         <tr>
@@ -42,4 +42,14 @@
     </tbody>
 </table>
 
+<script type="text/javascript">
+    $.getScript("/Scripts/jsAsuntoTicket.js")
+        .done(function (script, textStatus) {
+            //console.log(textStatus);
+        })
+        .fail(function (jqxhr, settings, exception) {
+            console.log("Fallo carad de cript js.");
+            console.log(exception);
+        });
+</script>
 

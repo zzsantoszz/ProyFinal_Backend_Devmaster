@@ -2,19 +2,21 @@
 @model tb_asunto_ticket
 
 @{
-    ViewBag.Title = "New";
-    Layout = "~/Views/Shared/_Modal.cshtml";
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Registrar nuevo Asunto Ticket</h2>
+<h2>Editar Asunto Ticket</h2>
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(model => model.idAsunto_ticket)
     <div class="form-horizontal">
+        <label>@Model.idAsunto_ticket</label>
         <div class="form-group">
             @Html.LabelFor(model => model.asunto_descripcion_ticket, new { @class = "control-label" })
             @Html.TextBoxFor(model => model.asunto_descripcion_ticket, htmlAttributes: new { @class = "form-control" })
-
+            @*<input class="form-control" id="user_acceso" name="user_acceso" type="text" value="@Model.user_acceso"> *@
         </div>
         <div class="form-group">
             <input type="submit" value="Registrar" class="btn btn-success" />
